@@ -1,24 +1,25 @@
 /* global chrome, window, document, console */
 
-//storage example
-chrome.storage.sync.set({'value': "test"}, function() {
-    // Notify that we saved.
-    console.log('Settings saved');
-});
+function saveOptions() {
+    var filterShares = document.getElementById('filter_shares').checked;
+    var filterRetweets = document.getElementById('filter_retweets').checked;
 
-function filterRetweets(){
-    chrome.tabs.executeScript({
-        code:'console.log("Filter Retweets Clicked");'
+    chrome.storage.local.set({
+      filterShares: filterShares,
+      filterRetweets: filterRetweets
     });
 }
 
-function filterShares(){
-    chrome.tabs.executeScript({
-        code:'console.log("Filter Shares Clicked");'
-    });
-}  
+function restoreOptions() {
+  document.getElementById('save').addEventListener('click', saveOptions);
+  chrome.storage.local.get({
+    filterShares: false,
+    filterRetweets: false
+  }, function(opts) {
+    document.getElementById('filter_shares').checked = opts.filterShares;
+    document.getElementById('filter_retweets').checked = opts.filterRetweets;
+  });
+}
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('retweets').addEventListener('click', filterRetweets);
-    document.getElementById('shares').addEventListener('click', filterShares);
-});
+document.addEventListener('DOMContentLoaded', restoreOptions);
+

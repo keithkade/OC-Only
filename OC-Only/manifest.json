@@ -10,5 +10,15 @@
       "default_icon": "ocOnlyIcon.png",
       "default_popup": "popup.html"
   },
-  "manifest_version": 2
+  "manifest_version": 2,
+  "content_scripts": [
+  	{
+	    "matches": [
+	    	"https://www.facebook.com/",
+	    	"https://twitter.com/"
+	    ],
+	    "js": [
+            "main.js"
+	    ]
+  	}]
 }
