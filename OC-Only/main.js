@@ -30,7 +30,7 @@ function removeShares(){
     if (shares.snapshotLength > 0) {
         for (var i=0; i<shares.snapshotLength; i++){
             var post = nthParent(shares.snapshotItem(i), 12);
-            post.parentNode.removeChild(post);
+            post.style.display = "none";
         }
     }
 }
@@ -42,7 +42,7 @@ function removeRetweets(){
     if (shares.snapshotLength > 0) {
         for (var i=0; i<shares.snapshotLength; i++){
             var post = nthParent(shares.snapshotItem(i), 4);
-            post.parentNode.removeChild(post);
+            post.style.display = "none";
         }
     }
 }

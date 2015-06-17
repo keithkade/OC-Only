@@ -5,13 +5,12 @@
     <style>
     
     body {
-      overflow: hidden;
       margin: 0px;
       padding: 0px;
       background: white;
     }
 
-    div {
+    section {
       cursor: pointer;
       text-align: center;
       padding: 1px 3px;
@@ -22,21 +21,34 @@
       background: #cccccc;
     }
 
+    .blacklist {
+        padding: 0;
+        border-width: 0;
+        width: 100%;
+    }
+        
+    #button-wrap {
+        text-align: center;
+    }
+
     </style>
     <script src="popup.js"></script>
   </head>
   <body>
-        <div>
-            <input type="checkbox" id="filter_shares"></input>
-            Filter Shares
+        <section>
+            Filter Shares By: <br>
+            <input type="checkbox" id="filter-shares"> All
+            <input type="text" class="blacklist" id="fb-input">
+        </section>
+
+        <section>
+            Filter Retweets By: <br>
+            <input type="checkbox" id="filter-retweets"> All
+            <input type="text" class="blacklist" id="twitter-input">
+        </section>
+
+        <div id="button-wrap">
+            <button id="save">Save</button>
         </div>
-
-        <div>
-            <input type="checkbox" id="filter_retweets"></input>
-            Filter Retweets
-        </div>
-
-        <button id="save">Save</button>
-
   </body>
 </html>
