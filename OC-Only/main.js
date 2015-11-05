@@ -23,26 +23,26 @@ chrome.storage.local.get('filterRetweets', function (result) {
     }
 });
 
-//remove the shared post html nodes
+//hide the the shared post html nodes
 function removeShares(){
     var path = "//span[@class='fcg' and contains(text(),'shared')]";
     var shares = document.evaluate(path, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     if (shares.snapshotLength > 0) {
         for (var i=0; i<shares.snapshotLength; i++){
             var post = nthParent(shares.snapshotItem(i), 12);
-            post.parentElement.removeChild(post);
+            post.style.display = "none";
         }
     }
 }
 
-//remove the retweets html nodes
+//hide the the retweets html nodes
 function removeRetweets(){
     var path = "//span[@class='js-retweet-text']";
     var shares = document.evaluate(path, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     if (shares.snapshotLength > 0) {
         for (var i=0; i<shares.snapshotLength; i++){
             var post = nthParent(shares.snapshotItem(i), 4);
-            post.parentElement.removeChild(post);
+            post.style.display = "none";
         }
     }
 }
