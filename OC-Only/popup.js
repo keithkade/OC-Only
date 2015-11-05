@@ -3,14 +3,14 @@
 function saveOptions() {
     var filterShares = document.getElementById('filter-shares').checked;
     var filterRetweets = document.getElementById('filter-retweets').checked;
-    var fbList = document.getElementById('fb-list').value;
-    var twitterList = document.getElementById('twitter-list').value;
+    //var fbList = document.getElementById('fb-input').value;
+    //var twitterList = document.getElementById('twitter-input').value;
 
     chrome.storage.local.set({
       filterShares: filterShares,
-      filterRetweets: filterRetweets,
-      fbList: fbList,
-      twitterList: twitterList
+      filterRetweets: filterRetweets//,
+      //fbList: fbList,
+      //twitterList: twitterList
     });
 }
 
@@ -18,14 +18,14 @@ function restoreOptions() {
   document.getElementById('save').addEventListener('click', saveOptions);
   chrome.storage.local.get({
     filterShares: false,
-    filterRetweets: false,
-    fbList: "",
-    twitterList: ""      
+    filterRetweets: false//,
+    //fbList: "",
+    //twitterList: ""      
   }, function(opts) {
-    document.getElementById('filter_shares').checked = opts.filterShares;
-    document.getElementById('filter_retweets').checked = opts.filterRetweets;
-    document.getElementById('fb-list').value = opts.fbList;
-    document.getElementById('twitter-list').value = opts.twitterList;
+    document.getElementById('filter-shares').checked = opts.filterShares;
+    document.getElementById('filter-retweets').checked = opts.filterRetweets;
+    //document.getElementById('fb-input').value = opts.fbList;
+    //document.getElementById('twitter-input').value = opts.twitterList;
   });
 }
 

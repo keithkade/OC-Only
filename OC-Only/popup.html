@@ -11,7 +11,6 @@
     }
 
     section {
-      cursor: pointer;
       text-align: center;
       padding: 1px 3px;
       font-family: sans-serif;
@@ -31,10 +30,29 @@
         text-align: center;
     }
 
+        
+    #save {
+        margin-top: 4px;
+    }
+    
     </style>
     <script src="popup.js"></script>
   </head>
   <body>
+        <section>
+            Filter Shares
+            <input type="checkbox" id="filter-shares"> 
+        </section>
+
+        <section>
+            Filter Retweets
+            <input type="checkbox" id="filter-retweets"> 
+        </section>
+
+        <div id="button-wrap">
+            <button id="save">Save</button>
+        </div>
+      <!--
         <section>
             Filter Shares By: <br>
             <input type="checkbox" id="filter-shares"> All
@@ -50,5 +68,6 @@
         <div id="button-wrap">
             <button id="save">Save</button>
         </div>
+      -->
   </body>
 </html>
